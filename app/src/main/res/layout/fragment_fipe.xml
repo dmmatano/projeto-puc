@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fipe.FipeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnSearchFipe"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <!-- TODO: Update blank fragment layout -->
+            <TextView
+                android:id="@+id/fipeTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Preço de Mercado" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_marginTop="30dp"
+                android:checkedButton="@+id/radio_button_1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/fipeTitleTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbCarro"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Carro" />
+
+                <RadioButton
+                    android:id="@+id/rbMoto"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Moto" />
+
+                <RadioButton
+                    android:id="@+id/rbCaminhao"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Caminhão" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtMakeLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:errorTextColor="@color/main_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/radioGroup"
+                android:hint="Marca do veículo">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtMake"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtModelLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:errorTextColor="@color/main_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtMakeLayout"
+                android:hint="Modelo">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtModel"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtYearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_marginHorizontal="10dp"
+                app:errorTextColor="@color/main_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtModelLayout"
+                android:hint="Ano">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtYear"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/edtYearLayout">
+
+                <TextView
+                    android:id="@+id/fipeValueTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="R$" />
+
+                <TextView
+                    android:id="@+id/fipeMakeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fipeValueTextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Marca:" />
+
+                <TextView
+                    android:id="@+id/fipeMakeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/fipeMakeTextView"
+                    app:layout_constraintTop_toTopOf="@id/fipeMakeTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fipeMakeTextView"
+                    android:textSize="16sp"
+                    android:text="informacoes" />
+
+                <TextView
+                    android:id="@+id/fipeModelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fipeMakeTextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Modelo:" />
+
+                <TextView
+                    android:id="@+id/fipeModelTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/fipeModelTextView"
+                    app:layout_constraintTop_toTopOf="@id/fipeModelTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fipeModelTextView"
+                    android:textSize="16sp"
+                    android:text="informacoes" />
+
+                <TextView
+                    android:id="@+id/fipeYearTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fipeModelTextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Ano:" />
+
+                <TextView
+                    android:id="@+id/fipeYearTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/fipeYearTextView"
+                    app:layout_constraintTop_toTopOf="@id/fipeYearTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fipeYearTextView"
+                    android:textSize="16sp"
+                    android:text="informacoes" />
+
+                <TextView
+                    android:id="@+id/fipeFuelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fipeYearTextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Combustível:" />
+
+                <TextView
+                    android:id="@+id/fipeFuelTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/fipeFuelTextView"
+                    app:layout_constraintTop_toTopOf="@id/fipeFuelTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fipeFuelTextView"
+                    android:textSize="16sp"
+                    android:text="informacoes" />
+
+                <TextView
+                    android:id="@+id/fipeRefMonthTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fipeFuelTextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Mês de Referência:" />
+
+                <TextView
+                    android:id="@+id/fipeRefMonthTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/fipeRefMonthTextView"
+                    app:layout_constraintTop_toTopOf="@id/fipeRefMonthTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fipeRefMonthTextView"
+                    android:textSize="16sp"
+                    android:text="informacoes" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSearchFipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        app:icon="@drawable/baseline_search_24"
+        app:iconGravity="textStart"
+        android:text="Pesquisar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

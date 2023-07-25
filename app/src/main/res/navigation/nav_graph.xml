@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dmwaresolutions.myfuelcalculatorbr.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vehiclesFragment"
+            app:destination="@id/vehiclesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.dmwaresolutions.myfuelcalculatorbr.ui.calculator.CalculatorFragment"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator">
+        <action
+            android:id="@+id/action_calculatorFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehiclesFragment"
+        android:name="com.dmwaresolutions.myfuelcalculatorbr.ui.vehicles.VehiclesFragment"
+        android:label="fragment_vehicles"
+        tools:layout="@layout/fragment_vehicles">
+        <argument
+            android:name="vehicle"
+            app:argType="com.dmwaresolutions.myfuelcalculatorbr.model.Vehicle"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_vehiclesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_vehiclesFragment_to_fipeFragment"
+            app:destination="@id/fipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fipeFragment"
+        android:name="com.dmwaresolutions.myfuelcalculatorbr.ui.fipe.FipeFragment"
+        android:label="fragment_fipe"
+        tools:layout="@layout/fragment_fipe"></fragment>
+</navigation>
